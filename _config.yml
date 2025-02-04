@@ -3,8 +3,6 @@ description: "Bioinformatician at University of Debrecen."
 baseurl: "haalasz.github.io"
 url: "https://haalasz.github.io"
 
-theme: cvless
-
 # site settings
 taglong: Bioinformatician at University of Debrecen.
 #tagshort: 
