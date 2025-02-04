@@ -5,13 +5,14 @@ url: "https://haalasz.github.io"
 
 # site settings
 taglong: Bioinformatician at University of Debrecen.
+taglong2: Faculty of Health Sciences, One Health Institute
 #tagshort: 
 
 # author settings
 author:
   name: Zsolt Halász
   email: halasz.zsolt@etk.unideb.hu
-photo: "https://mad-hatter.it.unideb.hu/portal/displayDocument/id/3961378?width=200"
+photo: "/assets/images/profile.webp"
 
 # profile links
 profile:
