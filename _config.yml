@@ -3,6 +3,17 @@ description: "Bioinformatician at University of Debrecen."
 baseurl: "haalasz.github.io"
 url: "https://haalasz.github.io"
 
+# author settings
+author:
+  name: Zsolt Halász
+  email: halasz.zsolt@etk.unideb.hu
+photo: "https://mad-hatter.it.unideb.hu/portal/displayDocument/id/3961378?width=200"
+
+# profile links
+profile:
+  instagram: https://www.instagram.com/zsolthalasz
+  github: https://github.com/haalasz
+
 exclude:
   - demo/
   - cvless.gemspec
