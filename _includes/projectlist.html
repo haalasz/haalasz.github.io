@@ -1,6 +1,6 @@
 <!-- Filter Buttons -->
 <div class="filter-container">
-  <button class="filter-btn" data-filter="all">All</button>
+  <button class="filter-btn active" data-filter="all">All</button>
   {% assign all_tags = "" | split: "" %}
   {% for project in site.projects %}
     {% for tag in project.tags %}
@@ -16,7 +16,21 @@
 
 <!-- Project Grid -->
 <div class="project-grid">
-  {% for project in site.projects %}
+  {% assign highlighted_projects = site.projects | where: "highlight", "yes" %}
+  {% assign other_projects = site.projects | where: "highlight", "no" %}
+
+  {% for project in highlighted_projects %}
+  <div class="project-card highlight {% for tag in project.tags %}tag-{{ tag }} {% endfor %}">
+    <h2><a href="{{ project.link }}">{{ project.title }}</a></h2>
+    {% if project.image %}
+      <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image">
+    {% endif %}
+    <p>{{ project.description }}</p>
+    <p><strong>Tags:</strong> {{ project.tags | join: ', ' }}</p>
+  </div>
+  {% endfor %}
+
+  {% for project in other_projects %}
   <div class="project-card {% for tag in project.tags %}tag-{{ tag }} {% endfor %}">
     <h2><a href="{{ project.link }}">{{ project.title }}</a></h2>
     {% if project.image %}

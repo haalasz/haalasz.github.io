@@ -129,22 +129,32 @@ a.reversefootnote {
 }
 
 .filter-container {
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
 .filter-btn {
-  padding: 8px 15px;
-  margin: 5px;
-  border: 2px solid #007bff;
-  background: white;
-  color: #007bff;
+  background: linear-gradient(to right, #4CAF50, #6C4727);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: bold;
   cursor: pointer;
-  border-radius: 5px;
-  transition: 0.3s;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.filter-btn:hover, .filter-btn.active {
-  background: #007bff;
-  color: white;
+.filter-btn:hover {
+  background: linear-gradient(to right, #6C4727, #4CAF50);
+  transform: scale(1.05);
+}
+
+.filter-btn.active {
+  background: #976436;
+  transform: scale(1.1);
 }
