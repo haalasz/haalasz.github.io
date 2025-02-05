@@ -1,4 +1,4 @@
-<!-- Centered Clickable Tags -->
+<!-- Centered Tags -->
 <div class="tags-container">
   {% assign all_tags = "" | split: "" %}
   {% for project in site.projects %}
@@ -11,18 +11,18 @@
   
   <ul class="tags-list">
     {% for tag in all_tags %}
-      <li class="tag-item"><a href="#{{ tag | downcase }}" class="tag-link">{{ tag }}</a></li>
+      <li class="tag-item" onclick="filterProjects('{{ tag }}')">{{ tag }}</li>
     {% endfor %}
   </ul>
 </div>
 
 <!-- Project Grid -->
-<div class="project-grid">
+<div class="project-grid" id="projectGrid">
   {% assign highlighted_projects = site.projects | where: "highlight", "yes" %}
   {% assign other_projects = site.projects | where: "highlight", "no" %}
 
   {% for project in highlighted_projects %}
-  <div class="project-card {% for tag in project.tags %}tag-{{ tag }} {% endfor %}">
+  <div class="project-card {% for tag in project.tags %}tag-{{ tag }} {% endfor %}" data-tags="{{ project.tags | join: ' ' }}">
     <h2><a href="{{ project.link }}">{{ project.title }}</a></h2>
     {% if project.image %}
       <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image">
@@ -33,7 +33,7 @@
   {% endfor %}
 
   {% for project in other_projects %}
-  <div class="project-card {% for tag in project.tags %}tag-{{ tag }} {% endfor %}">
+  <div class="project-card {% for tag in project.tags %}tag-{{ tag }} {% endfor %}" data-tags="{{ project.tags | join: ' ' }}">
     <h2><a href="{{ project.link }}">{{ project.title }}</a></h2>
     {% if project.image %}
       <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image">
