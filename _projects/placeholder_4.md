@@ -2,7 +2,7 @@
 title: Placeholder-4
 description: It is just a placeholder.
 tags: [placeholder]
-highlight: no
+highlight: "no"
 image: 
 link: 
 ---
