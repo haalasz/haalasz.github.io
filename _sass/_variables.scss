@@ -9,6 +9,7 @@
   
   /* Custom Dark Green */
   --color-custom-dark-green: #1F2A0F;
+  --color-custom-even-darker-green: #030402;
 
   /* Particles Background */
   --color-particles-text: var(--oc-gray-1);
@@ -32,8 +33,8 @@ html[data-theme="dark"] {
   --color-text: var(--oc-gray-3);
   --color-heading: var(--oc-gray-3);
   --color-link: var(--oc-blue-3);
-  --color-chunk: var(--oc-gray-8);
-  --color-mark: var(--oc-gray-8);
+  --color-chunk: var(--color-custom-even-darker-green) !important;
+  --color-mark: var(--color-custom-even-darker-green) !important;
   --color-border: var(--oc-gray-7);
   --color-button: var(--oc-gray-7);
 }
