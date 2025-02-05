@@ -144,7 +144,7 @@ a.reversefootnote {
 
 .tag-item {
   background: #6C4727;
-  color: white;
+  color: #ffffff;
   padding: 8px 15px;
   border-radius: 20px;
   font-size: 14px;
@@ -160,11 +160,11 @@ a.reversefootnote {
 
 /* Reset button color */
 .tag-item.reset {
-  background-color: var(--color-heading); /* Use a color variable, similar to the title */
-  color: var(--color-text); /* Assuming text color matches your theme */
+  background-color: #5d7e2c;
+  color: #ffffff;
 }
 
 .tag-item.reset:hover {
-  background-color: var(--color-link); /* Change on hover */
+  background-color: #384b1b; /* Change on hover */
   transform: scale(1.1);
 }
