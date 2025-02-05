@@ -6,27 +6,28 @@ var sun =
 let systemInitiatedDark = window.matchMedia("(prefers-color-scheme: dark)");
 let theme = sessionStorage.getItem("theme");
 
-if (systemInitiatedDark.matches) {
-  document.getElementById("theme-toggle").innerHTML = sun;
-} else {
-  document.getElementById("theme-toggle").innerHTML = moon;
-}
-
-function prefersColorTest(systemInitiatedDark) {
+// Check if theme is stored in sessionStorage, if not use system preference
+if (theme === null) {
+  // Use system preference if no sessionStorage value exists
   if (systemInitiatedDark.matches) {
     document.documentElement.setAttribute("data-theme", "dark");
     document.getElementById("theme-toggle").innerHTML = sun;
-    sessionStorage.setItem("theme", "");
   } else {
     document.documentElement.setAttribute("data-theme", "light");
     document.getElementById("theme-toggle").innerHTML = moon;
-    sessionStorage.setItem("theme", "");
   }
+} else {
+  // Use the theme from sessionStorage
+  document.documentElement.setAttribute("data-theme", theme);
+  document.getElementById("theme-toggle").innerHTML = theme === "dark" ? sun : moon;
 }
+
+// Listen for system preference changes
 systemInitiatedDark.addEventListener("change", function (event) {
   prefersColorTest(event.target);
 });
 
+// Switch themes manually
 function modeSwitcher() {
   let theme = sessionStorage.getItem("theme");
   if (theme === "dark") {
@@ -37,23 +38,17 @@ function modeSwitcher() {
     document.documentElement.setAttribute("data-theme", "dark");
     sessionStorage.setItem("theme", "dark");
     document.getElementById("theme-toggle").innerHTML = sun;
-  } else if (systemInitiatedDark.matches) {
-    document.documentElement.setAttribute("data-theme", "light");
-    sessionStorage.setItem("theme", "light");
-    document.getElementById("theme-toggle").innerHTML = moon;
-  } else {
-    document.documentElement.setAttribute("data-theme", "dark");
-    sessionStorage.setItem("theme", "dark");
-    document.getElementById("theme-toggle").innerHTML = sun;
   }
 }
 
-if (theme === "dark") {
-  document.documentElement.setAttribute("data-theme", "dark");
-  sessionStorage.setItem("theme", "dark");
-  document.getElementById("theme-toggle").innerHTML = sun;
-} else if (theme === "light") {
-  document.documentElement.setAttribute("data-theme", "light");
-  sessionStorage.setItem("theme", "light");
-  document.getElementById("theme-toggle").innerHTML = moon;
+function prefersColorTest(systemInitiatedDark) {
+  if (systemInitiatedDark.matches) {
+    document.documentElement.setAttribute("data-theme", "dark");
+    document.getElementById("theme-toggle").innerHTML = sun;
+    sessionStorage.setItem("theme", "dark");
+  } else {
+    document.documentElement.setAttribute("data-theme", "light");
+    document.getElementById("theme-toggle").innerHTML = moon;
+    sessionStorage.setItem("theme", "light");
+  }
 }
