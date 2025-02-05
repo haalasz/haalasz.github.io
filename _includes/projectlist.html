@@ -1,26 +1,26 @@
-<ul class="project-list">
-    {% assign highlighted_projects = site.projects | where: "highlight", "yes" %}
-    {% assign other_projects = site.projects | where: "highlight", "no" %}
+<div class="project-grid">
+  {% assign highlighted_projects = site.projects | where: "highlight", "yes" %}
+  {% assign other_projects = site.projects | where: "highlight", "no" %}
 
-    {% for project in highlighted_projects %}
-    <li class="project-item project-highlight">
-      <h2><a href="{{ project.link }}">{{ project.title }}</a></h2>
-      {% if project.image %}
-        <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image">
-      {% endif %}
-      <p>{{ project.description }}</p>
-      <p><strong>Tags:</strong> {{ project.tags | join: ', ' }}</p>
-    </li>
-    {% endfor %}
+  {% for project in highlighted_projects %}
+  <div class="project-card highlight">
+    <h2><a href="{{ project.link }}">{{ project.title }}</a></h2>
+    {% if project.image %}
+      <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image">
+    {% endif %}
+    <p>{{ project.description }}</p>
+    <p><strong>Tags:</strong> {{ project.tags | join: ', ' }}</p>
+  </div>
+  {% endfor %}
 
-    {% for project in other_projects %}
-    <li class="project-item">
-      <h2><a href="{{ project.link }}">{{ project.title }}</a></h2>
-      {% if project.image %}
-        <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image">
-      {% endif %}
-      <p>{{ project.description }}</p>
-      <p><strong>Tags:</strong> {{ project.tags | join: ', ' }}</p>
-    </li>
-    {% endfor %}
-</ul>
+  {% for project in other_projects %}
+  <div class="project-card">
+    <h2><a href="{{ project.link }}">{{ project.title }}</a></h2>
+    {% if project.image %}
+      <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image">
+    {% endif %}
+    <p>{{ project.description }}</p>
+    <p><strong>Tags:</strong> {{ project.tags | join: ', ' }}</p>
+  </div>
+  {% endfor %}
+</div>
