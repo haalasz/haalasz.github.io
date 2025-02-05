@@ -6,7 +6,29 @@ var sun =
 let systemInitiatedDark = window.matchMedia("(prefers-color-scheme: dark)");
 let theme = sessionStorage.getItem("theme");
 
-function setTheme(theme) {
+function prefersColorTest(systemInitiatedDark) {
+  if (systemInitiatedDark.matches) {
+    document.documentElement.setAttribute("data-theme", "dark");
+    document.getElementById("theme-toggle").innerHTML = sun;
+    sessionStorage.setItem("theme", "dark");
+  } else {
+    document.documentElement.setAttribute("data-theme", "light");
+    document.getElementById("theme-toggle").innerHTML = moon;
+    sessionStorage.setItem("theme", "light");
+  }
+}
+
+// If no theme is set in sessionStorage, use system preference
+if (theme === null) {
+  if (systemInitiatedDark.matches) {
+    document.documentElement.setAttribute("data-theme", "dark");
+    document.getElementById("theme-toggle").innerHTML = sun;
+  } else {
+    document.documentElement.setAttribute("data-theme", "light");
+    document.getElementById("theme-toggle").innerHTML = moon;
+  }
+} else {
+  // Use the stored theme in sessionStorage
   if (theme === "dark") {
     document.documentElement.setAttribute("data-theme", "dark");
     document.getElementById("theme-toggle").innerHTML = sun;
@@ -14,37 +36,23 @@ function setTheme(theme) {
     document.documentElement.setAttribute("data-theme", "light");
     document.getElementById("theme-toggle").innerHTML = moon;
   }
-  sessionStorage.setItem("theme", theme);
 }
 
-// Check if a theme is stored in sessionStorage
-if (theme === null) {
-  // If no theme is stored, use the system preference
-  if (systemInitiatedDark.matches) {
-    setTheme("dark");
-  } else {
-    setTheme("light");
-  }
-} else {
-  // Use the theme from sessionStorage if available
-  setTheme(theme);
-}
-
-// Listen for system preference changes
+// Listen for system color scheme changes
 systemInitiatedDark.addEventListener("change", function (event) {
-  if (event.matches) {
-    setTheme("dark");
-  } else {
-    setTheme("light");
-  }
+  prefersColorTest(event.target);
 });
 
-// Switch theme manually
+// Function to manually toggle the theme
 function modeSwitcher() {
   let theme = sessionStorage.getItem("theme");
   if (theme === "dark") {
-    setTheme("light");
+    document.documentElement.setAttribute("data-theme", "light");
+    sessionStorage.setItem("theme", "light");
+    document.getElementById("theme-toggle").innerHTML = moon;
   } else {
-    setTheme("dark");
+    document.documentElement.setAttribute("data-theme", "dark");
+    sessionStorage.setItem("theme", "dark");
+    document.getElementById("theme-toggle").innerHTML = sun;
   }
 }
