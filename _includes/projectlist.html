@@ -43,3 +43,24 @@
   </div>
   {% endfor %}
 </div>
+
+<!-- Add the following script for filtering -->
+<script>
+  function filterProjects(tag) {
+    // Get all project cards
+    const allProjects = document.querySelectorAll('.project-card');
+
+    // Loop through each project card
+    allProjects.forEach((project) => {
+      // Get the tags for each project
+      const projectTags = project.getAttribute('data-tags').split(' ');
+
+      // If the project has the clicked tag, show it, else hide it
+      if (projectTags.includes(tag) || tag === '') {
+        project.style.display = 'block'; // Show the project
+      } else {
+        project.style.display = 'none'; // Hide the project
+      }
+    });
+  }
+</script>
