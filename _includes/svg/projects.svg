@@ -1,8 +1,6 @@
-<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" color="#000000" fill="none" stroke-width="1.5">
- <g id="Layer_1">
-  <title>Layer 1</title>
-  <rect id="svg_3" height="13.14985" width="0" y="-0.84403" x="13.07034" stroke-width="0" stroke="#000" fill="#000000"/>
-  <rect stroke-width="0.7" rx="1" id="svg_5" height="7" width="22" y="8.5" x="1" stroke="#000" fill="none"/>
-  <text transform="matrix(1, 0, 0, 1, 0, 0)" font-weight="bold" xml:space="preserve" text-anchor="start" font-family="'Changa'" font-size="5" id="svg_1" y="13.52788" x="1.38439" stroke-width="0" stroke="#000" fill="#000000">PROJECTS</text>
- </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+<g id="surface1">
+<path style=" stroke:none;fill-rule:evenodd;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 12 4 L 20 4 L 20 6 L 12 6 Z M 12 11 L 20 11 L 20 13 L 12 13 Z M 4 16 L 9 16 L 9 21 L 4 21 Z M 5.5 17.5 L 5.5 19.5 L 7.5 19.5 L 7.5 17.5 Z M 12 18 L 20 18 L 20 20 L 12 20 Z M 8.898438 2.164062 L 10.085938 3.078125 L 6.523438 7.710938 L 3.304688 4.894531 L 4.292969 3.765625 L 6.308594 5.527344 Z M 8.898438 9.164062 L 10.085938 10.078125 L 6.523438 14.710938 L 3.304688 11.894531 L 4.292969 10.765625 L 6.308594 12.527344 Z M 8.898438 9.164062 "/>
+</g>
 </svg>
