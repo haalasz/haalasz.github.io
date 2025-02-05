@@ -157,3 +157,14 @@ a.reversefootnote {
   background: #4CAF50;
   transform: scale(1.1);
 }
+
+/* Reset button color */
+.tag-item.reset {
+  background-color: var(--color-heading); /* Use a color variable, similar to the title */
+  color: var(--color-text); /* Assuming text color matches your theme */
+}
+
+.tag-item.reset:hover {
+  background-color: var(--color-link); /* Change on hover */
+  transform: scale(1.1);
+}
