@@ -128,33 +128,32 @@ a.reversefootnote {
   border-radius: 5px;
 }
 
-.filter-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
+.tags-container {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.filter-btn {
-  background: linear-gradient(to right, #4CAF50, #6C4727);
+.tags-list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+}
+
+.tag-item {
+  background: #6C4727;
   color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 25px;
+  padding: 8px 15px;
+  border-radius: 20px;
   font-size: 14px;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.3s ease-in-out;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.filter-btn:hover {
-  background: linear-gradient(to right, #6C4727, #4CAF50);
-  transform: scale(1.05);
-}
-
-.filter-btn.active {
-  background: #976436;
+.tag-item:hover {
+  background: #4CAF50;
   transform: scale(1.1);
 }
