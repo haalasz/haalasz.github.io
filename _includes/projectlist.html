@@ -1,20 +1,23 @@
-<div class="project-grid">
-  {% assign highlighted_projects = site.projects | where: "highlight", "yes" %}
-  {% assign other_projects = site.projects | where: "highlight", "no" %}
-
-  {% for project in highlighted_projects %}
-  <div class="project-card highlight">
-    <h2><a href="{{ project.link }}">{{ project.title }}</a></h2>
-    {% if project.image %}
-      <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image">
-    {% endif %}
-    <p>{{ project.description }}</p>
-    <p><strong>Tags:</strong> {{ project.tags | join: ', ' }}</p>
-  </div>
+<!-- Filter Buttons -->
+<div class="filter-container">
+  <button class="filter-btn" data-filter="all">All</button>
+  {% assign all_tags = "" | split: "" %}
+  {% for project in site.projects %}
+    {% for tag in project.tags %}
+      {% unless all_tags contains tag %}
+        {% assign all_tags = all_tags | push: tag %}
+      {% endunless %}
+    {% endfor %}
   {% endfor %}
+  {% for tag in all_tags %}
+    <button class="filter-btn" data-filter="{{ tag }}">{{ tag }}</button>
+  {% endfor %}
+</div>
 
-  {% for project in other_projects %}
-  <div class="project-card">
+<!-- Project Grid -->
+<div class="project-grid">
+  {% for project in site.projects %}
+  <div class="project-card {% for tag in project.tags %}tag-{{ tag }} {% endfor %}">
     <h2><a href="{{ project.link }}">{{ project.title }}</a></h2>
     {% if project.image %}
       <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image">
@@ -24,3 +27,28 @@
   </div>
   {% endfor %}
 </div>
+
+<!-- JavaScript for Filtering -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll(".filter-btn");
+    const projects = document.querySelectorAll(".project-card");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        const filter = button.getAttribute("data-filter");
+
+        projects.forEach(project => {
+          if (filter === "all" || project.classList.contains(`tag-${filter}`)) {
+            project.style.display = "block";
+          } else {
+            project.style.display = "none";
+          }
+        });
+
+        buttons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+      });
+    });
+  });
+</script>
