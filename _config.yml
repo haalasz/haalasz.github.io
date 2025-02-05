@@ -53,4 +53,4 @@ pagination:
 collections:
   projects:
     output: true
-    permalink: /projects/:path/
+    permalink: /projects/:name/
