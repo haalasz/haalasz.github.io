@@ -7,60 +7,16 @@ title: Projects
   {% include header.html %}
   <main>
     <h1>Projects</h1>
-
-    <!-- Tag Filters -->
-    <div id="tag-filters">
-      <button class="tag-filter active" data-tag="all">All</button>
-      {% assign tags = "" | split: "," %}
-      {% for project in site.projects %}
-        {% for tag in project.tags %}
-          {% unless tags contains tag %}
-            {% assign tags = tags | push: tag %}
-          {% endunless %}
-        {% endfor %}
-      {% endfor %}
-      {% for tag in tags %}
-        <button class="tag-filter" data-tag="{{ tag }}">{{ tag }}</button>
-      {% endfor %}
-    </div>
-
-    <!-- Projects List -->
     <div class="projects-list">
       {% for project in site.projects %}
-        <div class="project-item" data-tags="{{ project.tags | join: ' ' }}">
+        <div class="project-item">
           <img src="{{ project.image }}" alt="{{ project.title }}" width="200">
           <h2><a href="{{ project.link }}" target="_blank">{{ project.title }}</a></h2>
           <p>{{ project.description }}</p>
+          <p><strong>Tags:</strong> {{ project.tags | join: ", " }}</p>
         </div>
       {% endfor %}
     </div>
   </main>
   {% include footer.html %}
 </article>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".tag-filter").forEach(button => {
-      button.addEventListener("click", () => {
-        document.querySelector(".tag-filter.active")?.classList.remove("active");
-        button.classList.add("active");
-
-        const tag = button.dataset.tag;
-        document.querySelectorAll(".project-item").forEach(project => {
-          project.style.display = (tag === "all" || project.dataset.tags.includes(tag)) ? "block" : "none";
-        });
-      });
-    });
-  });
-</script>
-
-<style>
-  #tag-filters { margin-bottom: 1rem; }
-  .tag-filter {
-    margin: 0 5px; padding: 5px 10px; border: none; cursor: pointer;
-    background-color: #ddd;
-  }
-  .tag-filter.active { background-color: #0073e6; color: white; }
-  .projects-list { display: flex; flex-wrap: wrap; gap: 20px; }
-  .project-item { width: calc(33.333% - 20px); min-width: 250px; }
-</style>
