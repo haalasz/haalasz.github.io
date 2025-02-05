@@ -1,0 +1,13 @@
+<ul class="project-list">
+    {% for project in site.projects %}
+    <li class="project-item">
+      <h2><a href="{{ project.link }}">{{ project.title }}</a></h2>
+      {% if project.image %}
+        <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image">
+      {% endif %}
+      <p>{{ project.description }}</p>
+      <p><strong>Tags:</strong> {{ project.tags | join: ', ' }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+  
