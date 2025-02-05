@@ -25,7 +25,7 @@
   {% assign other_projects = site.projects | where: "highlight", "no" %}
 
   {% for project in highlighted_projects %}
-  <div class="project-card highlight {% for tag in project.tags %}tag-{{ tag }} {% endfor %}" data-tags="{{ project.tags | join: ' ' }}">
+  <div class="project-card highlight {% for tag in project.tags %}tag-{{ tag | replace: ' ', '-' }} {% endfor %}" data-tags="{{ project.tags | join: ',' }}">
     <h2><a href="{{ project.link }}">{{ project.title }}</a></h2>
     {% if project.image %}
       <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image">
@@ -36,7 +36,7 @@
   {% endfor %}
 
   {% for project in other_projects %}
-  <div class="project-card {% for tag in project.tags %}tag-{{ tag }} {% endfor %}" data-tags="{{ project.tags | join: ' ' }}">
+  <div class="project-card {% for tag in project.tags %}tag-{{ tag | replace: ' ', '-' }} {% endfor %}" data-tags="{{ project.tags | join: ',' }}">
     <h2><a href="{{ project.link }}">{{ project.title }}</a></h2>
     {% if project.image %}
       <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image">
@@ -55,8 +55,8 @@
 
     // Loop through each project card
     allProjects.forEach((project) => {
-      // Get the tags for each project
-      const projectTags = project.getAttribute('data-tags').split(' ');
+      // Get the tags for each project (split by comma)
+      const projectTags = project.getAttribute('data-tags').split(',');
 
       // If the project has the clicked tag or if 'Reset' is clicked, show it
       if (projectTags.includes(tag) || tag === '') {
