@@ -49,7 +49,3 @@ pagination:
   sort_reverse: true
   permalink: /:num/
   title: ":title &middot; Page :num"
-
-collections:
-  projects:
-    output: true
