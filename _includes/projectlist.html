@@ -1,4 +1,4 @@
-<!-- Centered Tags -->
+<!-- Centered Clickable Tags -->
 <div class="tags-container">
   {% assign all_tags = "" | split: "" %}
   {% for project in site.projects %}
@@ -11,7 +11,7 @@
   
   <ul class="tags-list">
     {% for tag in all_tags %}
-      <li class="tag-item">{{ tag }}</li>
+      <li class="tag-item"><a href="#{{ tag | downcase }}" class="tag-link">{{ tag }}</a></li>
     {% endfor %}
   </ul>
 </div>
@@ -22,7 +22,7 @@
   {% assign other_projects = site.projects | where: "highlight", "no" %}
 
   {% for project in highlighted_projects %}
-  <div class="project-card highlight {% for tag in project.tags %}tag-{{ tag }} {% endfor %}">
+  <div class="project-card {% for tag in project.tags %}tag-{{ tag }} {% endfor %}">
     <h2><a href="{{ project.link }}">{{ project.title }}</a></h2>
     {% if project.image %}
       <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image">
