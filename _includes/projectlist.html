@@ -26,26 +26,28 @@
 
   {% for project in highlighted_projects %}
   <div class="project-card highlight {% for tag in project.tags %}tag-{{ tag | replace: ' ', '-' }} {% endfor %}" data-tags="{{ project.tags | join: ',' }}">
-    <h2><a href="{{ project.link }}">{{ project.title }}</a></h2>
-    {% if project.image %}
-      <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image">
-    {% endif %}
-    <p>{{ project.description }}</p>
-    <p><strong>Tags:</strong> {{ project.tags | join: ', ' }}</p>
+    <a href="{{ project.link }}" class="project-link">
+      <h2>{{ project.title }}</h2>
+      {% if project.image %}
+        <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image">
+      {% endif %}
+      <p>{{ project.description }}</p>
+      <p><strong>Tags:</strong> {{ project.tags | join: ', ' }}</p>
+    </a>
   </div>
   {% endfor %}
 
   {% for project in other_projects %}
   <div class="project-card {% for tag in project.tags %}tag-{{ tag | replace: ' ', '-' }} {% endfor %}" data-tags="{{ project.tags | join: ',' }}">
-    <h2><a href="{{ project.link }}">{{ project.title }}</a></h2>
-    {% if project.image %}
-      <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image">
-    {% endif %}
-    <p>{{ project.description }}</p>
-    <p><strong>Tags:</strong> {{ project.tags | join: ', ' }}</p>
+    <a href="{{ project.link }}" class="project-link">
+      <h2>{{ project.title }}</h2>
+      {% if project.image %}
+        <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image">
+      {% endif %}
+      <p>{{ project.description }}</p>
+      <p><strong>Tags:</strong> {{ project.tags | join: ', ' }}</p>
+    </a>
   </div>
-  {% endfor %}
-</div>
 
 <!-- Add the following script for filtering -->
 <script>
