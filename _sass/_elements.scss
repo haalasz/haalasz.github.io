@@ -119,6 +119,7 @@ a.reversefootnote {
   text-align: center;
   position: relative;
   color: white; /* Ensure all text inside the card is white */
+  overflow: hidden; /* To ensure the content doesn't overflow the rounded corners */
 }
 
 .project-card a {
@@ -127,9 +128,9 @@ a.reversefootnote {
   width: 100%;          /* Ensure it spans the whole width */
   color: inherit;       /* Inherit the white text color */
   text-decoration: none;/* Remove underline */
-  position: relative;   /* To prevent border or background issues */
-  border: none;         /* Ensure no border is applied by default */
-  background: transparent; /* Ensure no background is applied by default */
+  position: absolute;   /* Position it absolutely to fill the entire parent */
+  top: 0;
+  left: 0;
 }
 
 .project-card a h2,
