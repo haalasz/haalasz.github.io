@@ -121,13 +121,13 @@ a.reversefootnote {
   color: white; /* Ensure all text inside the card is white */
 }
 
-/* Project Card Link */
 .project-card a {
   display: block;       /* Make the <a> tag a block-level element */
   height: 100%;         /* Ensure it fills the entire card */
   width: 100%;          /* Ensure it spans the whole width */
   color: inherit;       /* Inherit the white text color */
   text-decoration: none;/* Remove underline */
+  position: relative;   /* To prevent border or background issues */
 }
 
 .project-card a h2,
@@ -147,10 +147,14 @@ a.reversefootnote {
 }
 
 .project-card a:hover {
-  background-color: transparent;  /* Remove the background color */
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Optional: add a shadow on hover */
-  text-decoration: none; /* Ensure there's no underline */
-  border: none;  /* Prevent border from appearing */
+  background-color: transparent;  /* Remove any background color on hover */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Optional: shadow effect on hover */
+  border: none;  /* Prevent border from appearing on hover */
+}
+
+.project-card a:focus,
+.project-card a:hover {
+  outline: none;  /* Ensure no outline is visible on focus/hover */
 }
 
 /* Tags Container */
