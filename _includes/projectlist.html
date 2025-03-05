@@ -47,7 +47,9 @@
       <p>{{ project.description }}</p>
       <p><strong>Tags:</strong> {{ project.tags | join: ', ' }}</p>
     </a>
-  </div>
+  </div> <!-- This closes the for loop for other_projects -->
+  {% endfor %}
+</div>
 
 <!-- Add the following script for filtering -->
 <script>
