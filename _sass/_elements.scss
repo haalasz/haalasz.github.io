@@ -147,8 +147,10 @@ a.reversefootnote {
 }
 
 .project-card a:hover {
-  background-color: #4d6f2b;  /* Optional: add a hover effect to the card */
+  background-color: transparent;  /* Remove the background color */
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Optional: add a shadow on hover */
+  text-decoration: none; /* Ensure there's no underline */
+  border: none;  /* Prevent border from appearing */
 }
 
 /* Tags Container */
