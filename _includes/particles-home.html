@@ -8,6 +8,9 @@
       {{ site.taglong }} <br> {{ site.taglong2 }}
     </h1
     <div class="nowrap">
+      {% if site.author.email %}
+      <a class="particles-icon" href="{{ site.author.email }}">{% include svg/mail.svg %}</a>
+      {% endif %}
       {% if site.profile.facebook %}
       <a class="particles-icon" href="{{ site.profile.facebook }}">{% include svg/facebook.svg %}</a>
       {% endif %}
