@@ -1,11 +1,11 @@
 title: "Zsolt Halász"
-description: "Bioinformatician at University of Debrecen."
+description: "Computational Biology, Bioinformatics & Data Integrity"
 baseurl: "haalasz.github.io"
 url: "https://haalasz.github.io"
 
 # site settings
-taglong: Bioinformatician at University of Debrecen.
-taglong2: Faculty of Health Sciences, One Health Institute
+taglong: Computational Biology, Bioinformatics & Data Integrity
+#taglong2:
 #tagshort: 
 
 # author settings
